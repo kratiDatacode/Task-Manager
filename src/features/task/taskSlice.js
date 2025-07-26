@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice,nanoid} from "@reduxjs/toolkit";
 
  const taskSlice =createSlice({
     name:'tasks',
@@ -6,18 +6,31 @@ import {createSlice} from "@reduxjs/toolkit";
         items : [],
         filters:'all'
     },
+
     reducers:{
-        addTask:{
-
+        addTask:{ 
+         reducer : (state,action)=>{
+            state.items.push(action.payload)
+         },
+         prepare:(text)=>{
+            return {
+                payload:{
+                    id:nanoid(),
+                    text,
+                    completed:false
+                }
+            }
+         }
         },
-        toggleTask:{
-
+        toggleTask:(state,action)=>{
+              const task = state.items.find(t=>t.id===action.payload)
+              if(task) task.completed =!task.completed
         },
         deleteTask:{
 
         },
         setFilter:{
-            
+
         }
     }
  })
