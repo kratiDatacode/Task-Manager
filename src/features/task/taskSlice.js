@@ -15,7 +15,7 @@ import {createSlice,nanoid} from "@reduxjs/toolkit";
          prepare:(text)=>{
             return {
                 payload:{
-                    id:nanoid(),
+                    id:nanoid(), 
                     text,
                     completed:false
                 }
@@ -26,11 +26,12 @@ import {createSlice,nanoid} from "@reduxjs/toolkit";
               const task = state.items.find(t=>t.id===action.payload)
               if(task) task.completed =!task.completed
         },
-        deleteTask:{
+        deleteTask:(state,action)=>{
+            state.items= state.items.filters(t=>t.id!==action.payload);
 
         },
-        setFilter:{
-
+        setFilter:(state,action)=>{
+           state.filters =action.payload
         }
     }
  })
