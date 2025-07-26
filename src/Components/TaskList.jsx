@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import TaskItem from "./TaskItem";
 
 const TaskList = () =>{
 
@@ -8,7 +9,9 @@ const TaskList = () =>{
  return(
     <>
     <ul>
-
+      {items.map(task=>(
+        <TaskItem key={task.id} task={task}/>
+      ))}
     </ul>
     </>
  )
