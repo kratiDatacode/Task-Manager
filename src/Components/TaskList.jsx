@@ -4,7 +4,7 @@ import TaskItem from "./TaskItem";
 const TaskList = () =>{
 
  const {items,filters}=useSelector(state=>state.task);
- const filtered = filter === "completed"
+ const filtered = filters === "completed"
  ? items.filter(task =>task.completed)
  :items;
  console.log(items,'items')
