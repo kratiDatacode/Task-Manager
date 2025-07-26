@@ -35,3 +35,6 @@ import {createSlice,nanoid} from "@reduxjs/toolkit";
         }
     }
  })
+
+ export const  {addTask,deleteTask,toggleTask,setFilter}=taskSlice.actions;
+ export default taskSlice.reducer;
