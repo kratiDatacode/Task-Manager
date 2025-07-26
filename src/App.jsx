@@ -1,5 +1,6 @@
 import './App.css'
 import AddTask from './Components/AddTask'
+import TaskList from './Components/TaskList'
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
       <div>
         <h1>Task Manager</h1>
         <AddTask/>
+        <TaskList/>
       </div>
     </>
   )
